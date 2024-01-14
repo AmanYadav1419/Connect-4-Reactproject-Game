@@ -1,5 +1,5 @@
 .gameboard{
-    display:'grid'; 
+    display:grid; 
     grid-template-columns: repeat(4, 1fr); 
     grid-template-rows: repeat(4, 1fr); 
     padding:20;
@@ -14,7 +14,7 @@
     width:100px;
     height:100px; 
     margin:10px;
-    border-radius:'50%';
+    border-radius:50%;
     border: 5px solid black;
 }
 
