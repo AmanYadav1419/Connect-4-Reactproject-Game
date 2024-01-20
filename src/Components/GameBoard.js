@@ -3,14 +3,15 @@ import GameCircle from './GameCircle'
 import '../Game.css'
 import Header from './Header';
 import Footer from './Footer';
-import { isWinner } from '../Helper';
+import { isDraw, isWinner } from '../Helper';
 import {
   GAME_STATE_PLAYING, 
   NO_PLAYER,
   NO_CIRCLES,
   PLAYER_1, 
   GAME_STATE_WIN,
-  PLAYER_2
+  PLAYER_2,
+  GAME_STATE_DRAW
 } from '../Constants';
 
 
@@ -40,6 +41,11 @@ const GameBoard = () => {
     if(isWinner(gameBoard, id, currentPlayer)){
       setGameState(GAME_STATE_WIN);
       setWinPlayer(currentPlayer);
+    }
+
+    if(isDraw(gameBoard, id, currentPlayer)){
+      setGameState(GAME_STATE_DRAW);
+      setWinPlayer(NO_PLAYER);
     }
 
     setgameBoard(prev =>{

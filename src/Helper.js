@@ -28,3 +28,12 @@ export const isWinner = (gameboard, currentMove, currentPlayer) =>{
         }
     return false;
 }
+
+export const isDraw = (gameboard, currentMove, currentPlayer) =>{
+    let board = [...gameboard];
+    board[currentMove] = currentPlayer;
+
+    let count = board.reduce((n,x) => n + (x === 0), 0);
+    console.log(`count ${count}`);
+    return count === 0;
+}
