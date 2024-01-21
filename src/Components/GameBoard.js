@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import GameCircle from './GameCircle'
 import '../Game.css'
 import Header from './Header';
@@ -24,13 +24,23 @@ const GameBoard = () => {
 
   console.log(gameBoard);
 
+  useEffect(() => {
+    initGame();
+  }, []);
+
+  const initGame = () => {
+    console.log('init game');
+    setgameBoard(Array(16).fill(NO_PLAYER));
+    setCurrentPlayer(PLAYER_1);
+  }
+
   const initBoard = () => {
     const circles = [];
     for(let i = 0; i<NO_CIRCLES;i++){
       circles.push(renderCircle(i));
     }
     return circles;
-  }
+  };
  
   const circleClicked = (id) => {
     console.log("circle clicked:"+id);
@@ -52,8 +62,8 @@ const GameBoard = () => {
       return prev.map((circle,position)=>{
           if(position === id) return currentPlayer;
           return circle;
-      })
-    })
+      });
+    });
 
     setCurrentPlayer(currentPlayer === PLAYER_1 ? PLAYER_2 : PLAYER_1);
     console.log(gameBoard);
@@ -70,7 +80,7 @@ const GameBoard = () => {
           <div className='gameboard'>
             {initBoard()};
           </div>
-          <Footer />
+          <Footer onClickEvent={initGame} />
       </>
   )
 }
