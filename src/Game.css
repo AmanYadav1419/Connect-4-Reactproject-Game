@@ -22,11 +22,12 @@ body{
 }
 
 .header{
+    text-align: center;
     left: 50%;
-    top: 90px;
+    top: 60px;
     height: 80px;
     width: 300px;
-    margin-left: -120px;
+    margin-left: -140px;
 }
 
 .header-text{
@@ -43,26 +44,34 @@ body{
 
 .footer {
     left: 50%;
-    top: 750px;
+    top: 665px;
     height: 80px;
     width: 300px;
-    margin-left: -120px;
+    margin-left: -140px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .footer button{
-    position: relative;
-    left: 50%;
-    top: 20%;
-    margin-left: -125px;
-    width: 250px;
+    width: 140px;
     height: 50px;
+    margin-left: 5px;
+    margin-top: 15px;
     background-color: lightblue;
-    font-size: 30px;
+    font-size: 20px;
     -webkit-box-shadow:7px 5px 15px 3px rgba(0,0,0,0.9);
     box-shadow:7px 5px 15px 3px rgba(0,0,0,0.9);
     border: 5px solid chocolate;
     font-weight: bold;
+    transition: hover 0.5s ease;
+    border-radius: 10px;
 }
+
+.footer button:hover{
+    background-color: chocolate;
+    cursor: pointer;
+}
+
 .gameboard{
     display:grid; 
     grid-template-columns: repeat(4, 1fr); 
@@ -81,8 +90,8 @@ body{
 }
 
 .gamecircle{
-    width:100px;
-    height:100px; 
+    width:90px;
+    height:90px; 
     margin:10px;
     border-radius:50%;
     border: 5px solid black;
