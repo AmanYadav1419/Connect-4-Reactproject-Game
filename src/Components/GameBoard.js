@@ -17,7 +17,7 @@ import {
 
 const GameBoard = () => {
 
-  const [gameBoard, setgameBoard] = useState(Array(16).fill(NO_PLAYER));
+  const [gameBoard, setgameBoard] = useState(Array(NO_CIRCLES).fill(NO_PLAYER));
   const [currentPlayer, setCurrentPlayer] = useState(PLAYER_1);
   const [gameState, setGameState] = useState(GAME_STATE_PLAYING);
   const [winPlayer, setWinPlayer] = useState(NO_PLAYER);
@@ -30,7 +30,7 @@ const GameBoard = () => {
 
   const initGame = () => {
     console.log('init game');
-    setgameBoard(Array(16).fill(NO_PLAYER));
+    setgameBoard(Array(NO_CIRCLES).fill(NO_PLAYER));
     setCurrentPlayer(PLAYER_1);
     setGameState(GAME_STATE_PLAYING);
   }
@@ -85,7 +85,7 @@ const GameBoard = () => {
           <div className='gameboard'>
             {initBoard()}
           </div>
-          <Footer onNewGameClick={initGame} onSuggestClick={suggestMove} />
+          <Footer onNewGameClick={initGame} onSuggestClick={suggestMove} gameState={gameState}/>
       </>
   )
 }
